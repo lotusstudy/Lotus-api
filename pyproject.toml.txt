@@ -1,0 +1,52 @@
+[build-system]
+requires = [
+    "setuptools>=68.0.0",
+    "wheel>=0.41.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lotus-academy-management"
+version = "1.0.0"
+description = "Lotus Academy Attendance Management System"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Anubhav", email = "anubhav@example.com"}
+]
+
+dependencies = [
+    "flask>=2.3.0",
+    "flask-cors>=4.0.0",
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "gunicorn>=21.0.0",
+    "python-dotenv>=1.0.0"
+]
+
+[project.optional-dependencies]
+google = [
+    "google-api-python-client>=2.100.0",
+    "google-auth-httplib2>=0.1.0",
+    "google-auth-oauthlib>=1.0.0"
+]
+
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0"
+]
+
+[tool.setuptools]
+py-modules = [
+    "app",
+    "database",
+    "models",
+    "google_drive"
+]
+
+[tool.setuptools.package-data]
+"*" = ["*.db", "*.json", "*.xlsx"]
+
+[project.scripts]
+lotus-academy = "app:main"
